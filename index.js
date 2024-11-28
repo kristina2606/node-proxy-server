@@ -1,14 +1,19 @@
 const axios = require("axios");
 const dotenv = require("dotenv");
+const express = require("express");
 const { getWeekDates } = require("./utils/utils");
 
 dotenv.config();
 
-const apiKey = process.env.NASA_API_KEY;
-const apiUrl = process.env.NASA_API_URL;
+const { NASA_API_KEY, NASA_API_URL, PORT } = process.env;
+const app = express();
+
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT} port...`);
+});
 const { startDate, endDate } = getWeekDates();
 
-const url = `${apiUrl}?start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`;
+const url = `${NASA_API_URL}?start_date=${startDate}&end_date=${endDate}&api_key=${NASA_API_KEY}`;
 
 axios
   .get(url)
