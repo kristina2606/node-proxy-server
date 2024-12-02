@@ -15,11 +15,11 @@ const { startDate, endDate } = getWeekDates();
 
 const url = `${NASA_API_URL}?start_date=${startDate}&end_date=${endDate}&api_key=${NASA_API_KEY}`;
 
-axios
-  .get(url)
-  .then((response) => {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch((error) => {
-    console.log(error.message);
-  });
+app.get("/meteors", async (request, response) => {
+  try {
+    const result = await axios.get(url);
+    response.status(200).json(result.data);
+  } catch (error) {
+    response.status(500).json({ error: error.message });
+  }
+});
