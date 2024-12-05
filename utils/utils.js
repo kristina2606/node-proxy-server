@@ -14,4 +14,9 @@ function getWeekDates() {
   return { fromDate, toDate };
 }
 
-module.exports = { getWeekDates };
+function parseStringToBoolean(param) {
+  if (param === undefined) return null;
+  return param === "true";
+}
+
+module.exports = { getWeekDates, parseStringToBoolean };

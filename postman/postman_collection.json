@@ -14,6 +14,39 @@
 				"url": "http://localhost:4000/meteors"
 			},
 			"response": []
+		},
+		{
+			"name": "Query params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/meteors?date=2024-10-09&count=true&wereDangerousMeteors=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"meteors"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-10-09"
+						},
+						{
+							"key": "count",
+							"value": "true"
+						},
+						{
+							"key": "wereDangerousMeteors",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
