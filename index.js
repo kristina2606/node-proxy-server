@@ -4,8 +4,16 @@ const meteorsRoutes = require("./routes/meteors-routes");
 const homeRoutes = require("./routes/home-routes");
 const errorHandler = require("./middleware/errorHandler");
 const notFoundHandler = require("./middleware/notFoundHandler");
+const nunjucks = require("nunjucks");
 
 const app = express();
+
+app.set("view engine", "html");
+
+nunjucks.configure("views", {
+  autoescape: true,
+  express: app,
+});
 
 app.use(express.json());
 
