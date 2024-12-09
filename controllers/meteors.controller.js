@@ -1,24 +1,18 @@
 const service = require("../services/meteors.service");
-const { getWeekDates } = require("../utils/utils");
-const { isValidDate } = require("../utils/validateDate");
-const DateRangeException = require("../utils/dateRangeException");
-const { errorMessages, statusCodes } = require("../constants/constants");
+const { parseStringToBoolean } = require("../utils/utils");
 
 const getMeteors = async (request, response, next) => {
   try {
-    const { fromDate, toDate } = getWeekDates();
+    const { date, count, wereDangerousMeteors } = request.query;
 
-    const startDate = request.query.startDate || fromDate;
-    const endDate = request.query.endDate || toDate;
+    const isDangerous = parseStringToBoolean(wereDangerousMeteors);
+    const isCountRequested = parseStringToBoolean(count);
 
-    if (!isValidDate(startDate) || !isValidDate(endDate)) {
-      throw new DateRangeException(
-        errorMessages.INVALID_DATE_RANGE,
-        statusCodes.INVALID_DATE_RANGE
-      );
-    }
-
-    const meteors = await service.getRefactoredMeteors(startDate, endDate);
+    const meteors = await service.getRefactoredMeteors(
+      date,
+      isDangerous,
+      isCountRequested
+    );
 
     response.json(meteors);
   } catch (error) {
