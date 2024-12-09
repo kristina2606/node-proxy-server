@@ -1,9 +1,12 @@
 const repository = require("../repositories/meteors.repository");
+const { parseDateRange } = require("../utils/utils");
 
-const getRefactoredMeteors = async (startDate, endDate) => {
+const getRefactoredMeteors = async (date, wereDangerousMeteors, count) => {
+  const { startDate, endDate } = parseDateRange(date);
+
   const meteors = await repository.getMeteors(startDate, endDate);
 
-  return Object.values(meteors).flatMap((day) =>
+  const transformedData = Object.values(meteors).flatMap((day) =>
     day.map((meteor) => ({
       id: meteor.id,
       name: meteor.name,
@@ -17,6 +20,21 @@ const getRefactoredMeteors = async (startDate, endDate) => {
           .kilometers_per_second || null,
     }))
   );
+
+  let filteredData = transformedData;
+
+  if (wereDangerousMeteors) {
+    filteredData = filteredData.filter(
+      (meteor) =>
+        meteor.is_potentially_hazardous_asteroid === wereDangerousMeteors
+    );
+  }
+
+  if (count) {
+    return { count: filteredData.length };
+  }
+
+  return filteredData;
 };
 
 module.exports = { getRefactoredMeteors };
