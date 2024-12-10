@@ -1,6 +1,10 @@
 const config = {
-  NASA_API_URL: "https://api.nasa.gov/neo/rest/v1/feed",
+  METEORS_URL: "/neo/rest/v1/feed",
   PORT: 4000,
+  ROVER_PHOTO_URL: "/mars-photos/api/v1/rovers/curiosity/photos",
+  SOL: 1000,
+  BASE_NASA_API_URL: "https://api.nasa.gov",
+  CAMERA: "FHAZ",
 };
 
 const statusCodes = {
