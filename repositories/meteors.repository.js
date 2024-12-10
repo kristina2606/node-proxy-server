@@ -1,10 +1,11 @@
 const axios = require("axios");
 const config = require("../config/config");
 
-const { apiUrl, apiKey } = config;
+const { baseNasaApiUrl, meteorsUrl, apiKey } = config;
 
 const getMeteors = async (startDate, endDate) => {
-  const result = await axios.get(apiUrl, {
+  const url = `${baseNasaApiUrl}${meteorsUrl}`;
+  const result = await axios.get(url, {
     params: {
       start_date: startDate,
       end_date: endDate,
