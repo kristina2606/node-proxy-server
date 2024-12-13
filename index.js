@@ -15,7 +15,7 @@ nunjucks.configure("views", {
   autoescape: true,
   express: app,
 });
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(meteorsRoutes);

@@ -1,0 +1,12 @@
+{% extends '_layout.html' %}
+
+{% block content %}
+  <h1>Get a photo from Rover</h1>
+  <form action="/rover-photo/html" method="POST">
+    <label for="apiKey">API Key:</label>
+    <input type="text" id="apiKey" name="apiKey" required><br><br>
+
+
+    <button type="submit">Get Photo</button>
+  </form>
+{% endblock %}
