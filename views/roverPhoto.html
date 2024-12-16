@@ -1,0 +1,9 @@
+{% extends '_layout.html' %}
+
+{% block content %}
+  <h1>Rover Photo</h1>
+  <h2>Here is the photo from the rover:</h2>
+  <img src="{{ latestPhoto }}" alt="Rover Photo" />
+  <br/>
+  <a href="/rover-form">Back to form</a>
+{% endblock %}
