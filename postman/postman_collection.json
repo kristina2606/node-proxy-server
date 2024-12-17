@@ -1,70 +1,66 @@
 {
-	"info": {
-		"_postman_id": "07b9468d-0a35-485c-8a1d-2ad440d8824a",
-		"name": "Node - Proxy Server",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "32857675"
-	},
-	"item": [
-		{
-			"name": "Proxy Server Request",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://localhost:4000/meteors"
-			},
-			"response": []
-		},
-		{
-			"name": "Query params",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/meteors?date=2024-10-09&count=true&wereDangerousMeteors=true",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"meteors"
-					],
-					"query": [
-						{
-							"key": "date",
-							"value": "2024-10-09"
-						},
-						{
-							"key": "count",
-							"value": "true"
-						},
-						{
-							"key": "wereDangerousMeteors",
-							"value": "true"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Rover Photo",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"apiKey\": \"API_KEY\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:4000/rover-photo"
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "07b9468d-0a35-485c-8a1d-2ad440d8824a",
+    "name": "Node - Proxy Server",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "32857675"
+  },
+  "item": [
+    {
+      "name": "Proxy Server Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:4000/meteors"
+      },
+      "response": []
+    },
+    {
+      "name": "Query params",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/meteors?date=2024-10-09&count=true&wereDangerousMeteors=true",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["meteors"],
+          "query": [
+            {
+              "key": "date",
+              "value": "2024-10-09"
+            },
+            {
+              "key": "count",
+              "value": "true"
+            },
+            {
+              "key": "wereDangerousMeteors",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Rover Photo",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"apiKey\": \"API_KEY\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "http://localhost:4000/rover-photo"
+      },
+      "response": []
+    }
+  ]
 }
